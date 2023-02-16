@@ -41,8 +41,6 @@ func main() {
 	r.Use(cors.New(config))
 
 	r.POST("/contributors", getAllUser)
-
-	r.Run(":3001")
 }
 
 func getAllUser(ctx *gin.Context) {
