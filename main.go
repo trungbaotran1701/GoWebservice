@@ -65,7 +65,7 @@ func getAllUser(ctx *gin.Context) {
 	}
 
 	// Call to github API
-	url := fmt.Sprintf("https://api.github.com/repos/%s/%s/contributors", contributor.OwnerName, contributor.RepoName)
+	url := fmt.Sprintf("https://api.github.com/repos/%s/%s/contributors?per_page=1000", contributor.OwnerName, contributor.RepoName)
 
 	res, err := http.Get(url)
 
