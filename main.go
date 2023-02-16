@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
+	"os"
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
@@ -41,6 +42,13 @@ func main() {
 	r.Use(cors.New(config))
 
 	r.POST("/contributors", getAllUser)
+
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "3001"
+	}
+	r.Run(":" + port)
+
 }
 
 func getAllUser(ctx *gin.Context) {
